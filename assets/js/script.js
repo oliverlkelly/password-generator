@@ -72,29 +72,53 @@ function reqCharacterCreation(){
   }
 }
 function caseSelector(){
-  var tfArray = [passwordContainer.hasLowerCharacters, passwordContainer.hasUpperCharacters, passwordContainer.hasNumCharacters, passwordContainer.hasSymbolCharacters];
-  switch(tfArray){
-    case [false, false, false, true]:
+  var tfArray = [];
+  if(passwordContainer.hasLowerCharacters){
+    tfArray.push("1");
+  }
+  else{
+    tfArray.push("0")
+  }
+  if(passwordContainer.hasUpperCharacters){
+    tfArray.push("1");
+  }
+  else{
+    tfArray.push("0")
+  }
+  if(passwordContainer.hasNumCharacters){
+    tfArray.push("1");
+  }
+  else{
+    tfArray.push("0")
+  }
+  if(passwordContainer.hasSymbolCharacters){
+    tfArray.push("1");
+  }
+  else{
+    tfArray.push("0")
+  }
+  switch(tfArray.join("")){
+    case "0001":
       while(passwordContainer.password.length < passwordContainer.passwordLength){
         fillPasswordCharType(3);
       }
       break;
-    case [false, false, true, false]:
+    case "0010":
       while(passwordContainer.password.length < passwordContainer.passwordLength){
         fillPasswordCharType(2);
       }
       break;
-    case [false, false, true, true]:
+    case "0011":
       while(passwordContainer.password.length < passwordContainer.passwordLength){
         fillPasswordCharType(randNum(2) + 2);
       }
       break;
-    case [false, true, false, false]:
+    case "0100":
       while(passwordContainer.password.length < passwordContainer.passwordLength){
         fillPasswordCharType(1);
       }
       break;
-    case [false, true, false, true]:
+    case "0101":
       while(passwordContainer.password.length < passwordContainer.passwordLength){
         var x = randNum(2) + 2;
         if(x == 2){
@@ -103,32 +127,32 @@ function caseSelector(){
         fillPasswordCharType(x);
       }
       break;
-    case [false, true, true, false]:
+    case "0110":
       while(passwordContainer.password.length < passwordContainer.passwordLength){
         fillPasswordCharType(randNum(2) + 1);
       }
       break;
-    case [false, true, true, true]:
+    case "0111":
       while(passwordContainer.password.length < passwordContainer.passwordLength){
         fillPasswordCharType(randNum(3) + 1);
       }
       break;
-    case [true, false, false, false]:
+    case "1000":
       while(passwordContainer.password.length < passwordContainer.passwordLength){
         fillPasswordCharType(0);
       }
       break;
-    case [true, false, false, true]:
+    case "1001":
       while(passwordContainer.password.length < passwordContainer.passwordLength){
         fillPasswordCharType(randNum(2) * 3);
       }
       break;
-    case [true, false, true, false]:
+    case "1010":
       while(passwordContainer.password.length < passwordContainer.passwordLength){
         fillPasswordCharType(randNum(2) * 2);
       }
       break;
-    case [true, false, true, true]:
+    case "1011":
       while(passwordContainer.password.length < passwordContainer.passwordLength){
         var x = randNum(3) + 1;
         if(x == 1){
@@ -137,12 +161,12 @@ function caseSelector(){
         fillPasswordCharType(x);
       }
       break;
-    case [true, true, false, false]:
+    case "1100":
       while(passwordContainer.password.length < passwordContainer.passwordLength){
         fillPasswordCharType(randNum(2));
       }
       break;
-    case [true, true, false, true]:
+    case "1101":
       while(passwordContainer.password.length < passwordContainer.passwordLength){
         var x = randNum(3) + 1;
         if(x == 2){
@@ -151,12 +175,12 @@ function caseSelector(){
         fillPasswordCharType(x);
       }
       break;
-    case [true, true, true, false]:
+    case "1110":
       while(passwordContainer.password.length < passwordContainer.passwordLength){
         fillPasswordCharType(randNum(3));
       }
       break;
-    case [true, true, true, true]:
+    case "1111":
       while(passwordContainer.password.length < passwordContainer.passwordLength){
         fillPasswordCharType(randNum(4));
       }
