@@ -8,6 +8,11 @@ const passwordContainer = {
   password: []
 }
 
+// Random Number generator
+function randNum(i) {
+  return Math.floor(Math.random() * i);
+}
+
 // Symbol and Letter arrays
 var alphabet = Array.from('abcdefghijklmnopqrstuvwxyz');
 var symbols = Array.from('!@#$%^&*()_-?<>');
@@ -51,16 +56,23 @@ function checkCharacterSelection(){
     return;
   }
 }
+function reqCharacterCreation(){
+  if(passwordContainer.hasLowerCharacters){
+    passwordContainer.password.push(alphabet[randNum(alphabet.length)]);
+  }
+  if(passwordContainer.hasUpperCharacters){
+    passwordContainer.password.push((alphabet[randNum(alphabet.length)]).toUpperCase());
+  }
+  if(passwordContainer.hasNumCharacters){
+    passwordContainer.password.push(randNum(10));
+  }
+  if(passwordContainer.hasSymbolCharacters){
+    passwordContainer.password.push(symbols[randNum(symbols.length)]);
+  }
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-// Random Number generator
-function randNum() {
-  return Math.floor(Math.random() * 10);
-}
-
-
 
 function generatePassword(){
   var tempLength = window.prompt("Please enter desired password length (between 8 and 128):");
