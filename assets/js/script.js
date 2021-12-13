@@ -1,8 +1,8 @@
 //Password Object
 const passwordContainer = {
-  hasNumCharacters: false,
   hasLowerCharacters: false,
   hasUpperCharacters: false,
+  hasNumCharacters: false,
   hasSymbolCharacters: false,
   passwordLength: 0,
   password: []
@@ -71,8 +71,43 @@ function reqCharacterCreation(){
     passwordContainer.password.push(symbols[randNum(symbols.length)]);
   }
 }
-function fillReqSelection(){
-  if()
+function caseSelector(){
+  var tfArray = [passwordContainer.hasLowerCharacters, passwordContainer.hasUpperCharacters, passwordContainer.hasNumCharacters, passwordContainer.hasSymbolCharacters];
+  switch(tfArray){
+    case [false, false, false, true]:
+      while(passwordContainer.password.length < passwordContainer.passwordLength){
+        fillPassword(3);
+      }
+      break;
+    case [false, false, true, false]:
+      break;
+    case [false, false, true, true]:
+      break;
+    case [false, true, false, false]:
+      break;
+    case [false, true, false, true]:
+      break;
+    case [false, true, true, false]:
+      break;
+    case [false, true, true, true]:
+      break;
+    case [true, false, false, false]:
+      break;
+    case [true, false, false, true]:
+      break;
+    case [true, false, true, false]:
+      break;
+    case [true, false, true, true]:
+      break;
+    case [true, true, false, false]:
+      break;
+    case [true, true, false, true]:
+      break;
+    case [true, true, true, false]:
+      break;
+    case [true, true, true, true]:
+      break;
+  }
 }
 function fillPassword(i){
   if(i === 0){
