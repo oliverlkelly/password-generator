@@ -22,6 +22,7 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
+  passwordContainer.password = [];
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
@@ -70,6 +71,23 @@ function reqCharacterCreation(){
     passwordContainer.password.push(symbols[randNum(symbols.length)]);
   }
 }
+function fillReqSelection(){
+  if()
+}
+function fillPassword(i){
+  if(i === 0){
+    passwordContainer.password.push(alphabet[randNum(alphabet.length)]);
+  }
+  else if(i === 1){
+    passwordContainer.password.push((alphabet[randNum(alphabet.length)]).toUpperCase());
+  }
+  else if(i === 2){
+    passwordContainer.password.push(randNum(10));
+  }
+  else if(i === 3){
+    passwordContainer.password.push(symbols[randNum(symbols.length)]);
+  }
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
@@ -78,6 +96,8 @@ function generatePassword(){
   var tempLength = window.prompt("Please enter desired password length (between 8 and 128):");
   passwordContainer.passwordLength = checkValidLength(tempLength);
   characterSelection();
+  reqCharacterCreation();
+  return passwordContainer.password.join("");
 
 }
 
