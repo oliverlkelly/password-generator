@@ -35,9 +35,21 @@ function checkValidLength(templength){
     checkValidLength(length);
   }
 }
-
-function checkForLowerCase(){
-
+function characterSelection(){
+  passwordContainer.hasLowerCharacters = window.confirm("Will the password include Lowercase Letters?");
+  passwordContainer.hasUpperCharacters = window.confirm("Will the password include Uppercase Letters?");
+  passwordContainer.hasNumCharacters = window.confirm("Will the password include Numbers?");
+  passwordContainer.hasSymbolCharacters = window.confirm("Will the password include Symbols?");
+  checkCharacterSelection();
+}
+function checkCharacterSelection(){
+  if(passwordContainer.hasNumCharacters !== true && passwordContainer.hasUpperCharacters !== true && passwordContainer.hasLowerCharacters !== true && passwordContainer.hasSymbolCharacters !== true){
+    window.confirm("You must select at least one character type.");
+    characterSelection();
+  }
+  else{
+    return;
+  }
 }
 
 // Add event listener to generate button
@@ -53,6 +65,8 @@ function randNum() {
 function generatePassword(){
   var tempLength = window.prompt("Please enter desired password length (between 8 and 128):");
   passwordContainer.passwordLength = checkValidLength(tempLength);
+  characterSelection();
+
 }
 
 
