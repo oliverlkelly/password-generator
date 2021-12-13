@@ -201,6 +201,15 @@ function fillPasswordCharType(i){
     passwordContainer.password.push(symbols[randNum(symbols.length)]);
   }
 }
+function randomise(array){
+  var newArray = [];
+  while(array.length > 0){
+    pos = randNum(array.length);
+    newArray.push(array[pos]);
+    array.splice(pos, 1);
+  }
+  return newArray;
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
@@ -211,8 +220,8 @@ function generatePassword(){
   characterSelection();
   reqCharacterCreation();
   caseSelector();
-  return passwordContainer.password.join("");
-
+  var randomisedPass = randomise(passwordContainer.password);
+  return randomisedPass.join("");
 }
 
 
