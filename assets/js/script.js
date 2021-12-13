@@ -76,40 +76,94 @@ function caseSelector(){
   switch(tfArray){
     case [false, false, false, true]:
       while(passwordContainer.password.length < passwordContainer.passwordLength){
-        fillPassword(3);
+        fillPasswordCharType(3);
       }
       break;
     case [false, false, true, false]:
+      while(passwordContainer.password.length < passwordContainer.passwordLength){
+        fillPasswordCharType(2);
+      }
       break;
     case [false, false, true, true]:
+      while(passwordContainer.password.length < passwordContainer.passwordLength){
+        fillPasswordCharType(randNum(2) + 2);
+      }
       break;
     case [false, true, false, false]:
+      while(passwordContainer.password.length < passwordContainer.passwordLength){
+        fillPasswordCharType(1);
+      }
       break;
     case [false, true, false, true]:
+      while(passwordContainer.password.length < passwordContainer.passwordLength){
+        var x = randNum(2) + 2;
+        if(x == 2){
+          x = 1;
+        }
+        fillPasswordCharType(x);
+      }
       break;
     case [false, true, true, false]:
+      while(passwordContainer.password.length < passwordContainer.passwordLength){
+        fillPasswordCharType(randNum(2) + 1);
+      }
       break;
     case [false, true, true, true]:
+      while(passwordContainer.password.length < passwordContainer.passwordLength){
+        fillPasswordCharType(randNum(3) + 1);
+      }
       break;
     case [true, false, false, false]:
+      while(passwordContainer.password.length < passwordContainer.passwordLength){
+        fillPasswordCharType(0);
+      }
       break;
     case [true, false, false, true]:
+      while(passwordContainer.password.length < passwordContainer.passwordLength){
+        fillPasswordCharType(randNum(2) * 3);
+      }
       break;
     case [true, false, true, false]:
+      while(passwordContainer.password.length < passwordContainer.passwordLength){
+        fillPasswordCharType(randNum(2) * 2);
+      }
       break;
     case [true, false, true, true]:
+      while(passwordContainer.password.length < passwordContainer.passwordLength){
+        var x = randNum(3) + 1;
+        if(x == 1){
+          x = 0;
+        }
+        fillPasswordCharType(x);
+      }
       break;
     case [true, true, false, false]:
+      while(passwordContainer.password.length < passwordContainer.passwordLength){
+        fillPasswordCharType(randNum(2));
+      }
       break;
     case [true, true, false, true]:
+      while(passwordContainer.password.length < passwordContainer.passwordLength){
+        var x = randNum(3) + 1;
+        if(x == 2){
+          x = 0;
+        }
+        fillPasswordCharType(x);
+      }
       break;
     case [true, true, true, false]:
+      while(passwordContainer.password.length < passwordContainer.passwordLength){
+        fillPasswordCharType(randNum(3));
+      }
       break;
     case [true, true, true, true]:
+      while(passwordContainer.password.length < passwordContainer.passwordLength){
+        fillPasswordCharType(randNum(4));
+      }
       break;
   }
 }
-function fillPassword(i){
+function fillPasswordCharType(i){
   if(i === 0){
     passwordContainer.password.push(alphabet[randNum(alphabet.length)]);
   }
