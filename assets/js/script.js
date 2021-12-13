@@ -1,3 +1,17 @@
+//Password Object
+const passwordContainer = {
+  hasNumCharacters: false,
+  hasLowerCharacters: false,
+  hasUpperCharacters: false,
+  hasSymbolCharacters: false,
+  passwordLength: 0,
+  password: []
+}
+
+// Symbol and Letter arrays
+var alphabet = Array.from('abcdefghijklmnopqrstuvwxyz');
+var symbols = Array.from('!@#$%^&*()_-?<>');
+
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
@@ -10,6 +24,7 @@ function writePassword() {
 
 }
 
+//Method to check valid length
 function checkValidLength(templength){
   var length = parseInt(templength);
   if(length >= 8 && length <= 128 && isNaN(length) !== true){
@@ -21,7 +36,9 @@ function checkValidLength(templength){
   }
 }
 
+function checkForLowerCase(){
 
+}
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
@@ -31,21 +48,11 @@ function randNum() {
   return Math.floor(Math.random() * 10);
 }
 
-// Symbol and Letter arrays
-var alphabet = Array.from('abcdefghijklmnopqrstuvwxyz');
-var symbols = Array.from('!@#$%^&*()_-?<>');
 
-// Usage variables for final pass
-var numCharacters = [];
-var lowerCharacters = [];
-var upperCharacters = [];
-var symbolCharacters = [];
-var passwordLength;
-var password = [];
 
 function generatePassword(){
   var tempLength = window.prompt("Please enter desired password length (between 8 and 128):");
-  passwordLength = checkValidLength(tempLength);
+  passwordContainer.passwordLength = checkValidLength(tempLength);
 }
 
 
