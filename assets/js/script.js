@@ -186,6 +186,7 @@ function generatePassword(){
   passwordContainer.passwordLength = checkValidLength(tempLength);
   characterSelection();
   reqCharacterCreation();
+  caseSelector();
   return passwordContainer.password.join("");
 
 }
