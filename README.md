@@ -17,8 +17,11 @@ This project is a webpage, and is deployed on github pages through the following
 The site can also be deployed locally by pulling the file structure to your local machine and opening the index.html file in your browser of preference.
 
 ## Usage
+
 This project can be used as a website. There are other components of the site that can be used for reference, such as the methods and logic used to create the password and randomise the resulting characters in the resulting string.
 
 ## Credits
+
 This project was done in conjunction with the University of Sydney and Trilogy Education through their collaborated full stack bootcamp program.
+
 ---
