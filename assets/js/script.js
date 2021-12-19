@@ -38,7 +38,7 @@ function checkValidLength(templength){
   }
   else{
     length = parseInt(window.prompt("That is not a valid value. Please enter desired password length (between 8 and 128):"));
-    checkValidLength(length);
+    return checkValidLength(length);
   }
 }
 function characterSelection(){
